@@ -78,7 +78,6 @@ if [ $source_acc_exists -gt 0 ]; then
             [yY]* ) break;;
             [nN]* ) eclr cyan "Please enter correct domain name: "
                     read source_domain && break;; 
-                    #eclr cyan "Source domain is set as $purple$source_domain" && break;;
             * ) eclr cyan "Type y or n, please.";;
         esac
     done
@@ -273,10 +272,4 @@ echo "Cloned site database user: $tar_db_user" >> $temp_dir/userinfo.txt
 echo "Cloned site database user password: $tar_db_user_pass" >> $temp_dir/userinfo.txt
 
 eclr green "Please add content of $temp_dir/userinfo.txt to "secure note" in client's manage."
-
-#err_trig=$(cat $temp_dir/clone_error.log | wc -l)
-#if [ "$err_trig" -gt 0 ]; then
-#    eclr red "You got some possible errors. Please check $temp_dir/clone_error.log"
-#else
-    eclr green "Cloning is done. Everything looks fine"
-#fi
+eclr green "Done cloning. Have fun!"
