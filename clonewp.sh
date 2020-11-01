@@ -25,7 +25,7 @@ fi
 
 #check if cPanel
 if [ ! -f /etc/wwwacct.conf ]; then
-    eclr red "Please don't run script on ono-cPanel server\nExiting!" && exit
+    eclr red "Please don't run script on no-cPanel server\nExiting!" && exit
 fi
 
 temp_dir=/home/temp/wpclone$(date +%F.%T)
