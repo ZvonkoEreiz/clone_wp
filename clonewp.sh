@@ -19,7 +19,7 @@ eclr() {
 }
 
 #run as root
-if [[ "$(id -u)" -gt 0 ]]; then
+if [ "$(id -u)" -gt 0 ]; then
     eclr red "Please run script as root\nExiting!" && exit
 fi
 
