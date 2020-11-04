@@ -32,6 +32,7 @@ temp_dir=/home/temp/wpclone$(date +%F.%T)
 mkdir $temp_dir
 
 cleanexit() {
+    if [ -d $temp_dir ]; then
     rm -rf $temp_dir
     eclr red "bye!"
     exit
