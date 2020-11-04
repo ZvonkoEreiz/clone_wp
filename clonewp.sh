@@ -260,7 +260,9 @@ mysql -e "grant all privileges on $tar_db.* to '$tar_db_user'@'localhost'"
 
 sed -i "s/$source_domain/$target_domain/g" $temp_dir/$source_db.sql
 mysql $tar_db < $temp_dir/$source_db.sql
-rm $temp_dir/$source_db.sql
+if [ -f $temp_dir/$source_db.sql ]; then
+    rm $temp_dir/$source_db.sql
+fi
 
 sed -i "s/$source_db/$tar_db/g" $tar_wpcnf
 sed -i "/define('DB_PASSWORD*/c\define('DB_PASSWORD', '$tar_db_user_pass');" $tar_wpcnf
